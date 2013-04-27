@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?><plug-in>
+    <name>gtools</name>
+    <class>fr.paris.lutece.portal.service.plugin.PluginDefaultImplementation</class>
+    <version>1.0.0</version>
+    <documentation/>
+    <installation/>
+    <changes/>
+    <user-guide/>
+    <description>gtools.plugin.description</description>
+    <provider>gtools.plugin.provider</provider>
+    <provider-url>http://your.web.site.com</provider-url>
+    <icon-url>images/admin/skin/plugins/gtools/gtools.png</icon-url>
+    <copyright/>
+    <db-pool-required>0</db-pool-required>
+
+    
+    <!-- Page Include Service -->
+    <page-include-services>
+        <page-include-service>
+            <page-include-service-id>gtools.include.service.name</page-include-service-id>
+            <page-include-service-class>fr.paris.lutece.plugins.gtools.web.AnalyticsInclude</page-include-service-class>
+        </page-include-service>
+    </page-include-services>
+
+
+</plug-in>
