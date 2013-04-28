@@ -17,8 +17,12 @@
     <!-- Page Include Service -->
     <page-include-services>
         <page-include-service>
-            <page-include-service-id>gtools.include.service.name</page-include-service-id>
+            <page-include-service-id>gtools.include.analytics.service.name</page-include-service-id>
             <page-include-service-class>fr.paris.lutece.plugins.gtools.web.AnalyticsInclude</page-include-service-class>
+        </page-include-service>
+        <page-include-service>
+            <page-include-service-id>gtools.include.verification.service.name</page-include-service-id>
+            <page-include-service-class>fr.paris.lutece.plugins.gtools.web.SiteVerificationInclude</page-include-service-class>
         </page-include-service>
     </page-include-services>
 
