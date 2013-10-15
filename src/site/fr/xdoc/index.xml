@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <title>Plugin gtools</title>
+    </properties>
+    <body>
+        <section name="Plugin gtools">
+            <!--
+            <p>
+                <img src="images/gtools.png" />
+            </p>
+            -->
+            <subsection name="Introduction">
+                <p>Le plugin GTools permet d'inclure dans les pages du site des éléments destinés aux services Google tels que :</p>
+                <ul>
+                    <li>Google Analytics (statistiques de fréquentation)</li>
+                    <li>Google Tools for Webmaster (analyse d'optimisation du site)</li> 
+                </ul>
+            </subsection>
+            <subsection name="Paramétrage des templates">
+                <p>
+                    Pour Google Analytics, ajouter le signet <code>
+                        <b>google_analytics</b>
+                    </code> 
+                    dans le template des pages (page_frameset.html) ou du pied de page (footer.html) 
+                </p>
+                <code>
+                    <pre>
+&lt;!-- Google Analytics --&gt;
+${google_analytics}         
+                    </pre>
+                </code>
+
+                <p>
+                    Pour la vérification du site, ajouter le signet <code>
+                        <b>google_meta_site_verification</b>
+                    </code>
+                    dans la partie <code>head</code> de la page (header.html et header_home.html),
+                </p>
+                ${google_meta_site_verification}
+<code>
+                    <pre>
+&lt;!-- Google Analytics --&gt;
+${google_analytics}         
+                    </pre>
+                </code>
+            </subsection>
+            <subsection name="Administration des variables Google">
+                <p>
+                    La gestion des variables Google (code GA, clé, ...) sont directement accessibles dans la rubrique "Gestion des propriétés du site" du back office.
+                </p>
+            </subsection>
+        </section>
+    </body>
+</document>
+
