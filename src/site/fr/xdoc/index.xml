@@ -16,6 +16,11 @@
                     <li>Google Analytics (statistiques de fréquentation)</li>
                     <li>Google Tools for Webmaster (analyse d'optimisation du site)</li> 
                 </ul>
+                <p>
+                    Ce plugin est utilisable à partir de la version 4.1 de Lutece. 
+                    Pour les versions précédentes de Lutece, le plugin <b>ganalytics</b> peut être utilisé 
+                    pour la partie Google Analytics. 
+                </p>
             </subsection>
             <subsection name="Paramétrage des templates">
                 <p>
@@ -24,12 +29,12 @@
                     </code> 
                     dans le template des pages (page_frameset.html) ou du pied de page (footer.html) 
                 </p>
-                <code>
+                <div class="source">
                     <pre>
 &lt;!-- Google Analytics --&gt;
 ${google_analytics}         
                     </pre>
-                </code>
+                </div>
 
                 <p>
                     Pour la vérification du site, ajouter le signet <code>
@@ -37,13 +42,13 @@ ${google_analytics}
                     </code>
                     dans la partie <code>head</code> de la page (header.html et header_home.html),
                 </p>
-                ${google_meta_site_verification}
-<code>
+                
+                <div class="source">
                     <pre>
-&lt;!-- Google Analytics --&gt;
-${google_analytics}         
+&lt;!-- Meta : site check --&gt;
+${google_meta_site_verification}         
                     </pre>
-                </code>
+                </div>
             </subsection>
             <subsection name="Administration des variables Google">
                 <p>
