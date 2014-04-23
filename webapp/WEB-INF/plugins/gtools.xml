@@ -8,7 +8,7 @@
     <user-guide/>
     <description>gtools.plugin.description</description>
     <provider>gtools.plugin.provider</provider>
-    <provider-url>http://your.web.site.com</provider-url>
+    <provider-url> http://lutece.paris.fr</provider-url>
     <icon-url>images/admin/skin/plugins/gtools/gtools.png</icon-url>
     <copyright/>
     <db-pool-required>0</db-pool-required>
