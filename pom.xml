@@ -41,8 +41,8 @@
 		<jiraComponentId>11551</jiraComponentId> 
 	</properties>
     <scm>
-        <connection>scm:svn:http://dev.lutece.paris.fr/svn/lutece/portal/trunk/plugins/technical/plugin-gtools</connection>
-        <developerConnection>scm:svn:https://dev.lutece.paris.fr/svn/lutece/portal/trunk/plugins/technical/plugin-gtools</developerConnection>
-        <url>http://dev.lutece.paris.fr/viewvc/lutece/portal/trunk/plugins/technical/plugin-gtools</url>
+        <connection>scm:svn:https://github.com/lutece-platform/lutece-site-plugin-gtools.git</connection>
+        <developerConnection>scm:svn:https://github.com/lutece-platform/lutece-site-plugin-gtools.git</developerConnection>
+        <url>https://github.com/lutece-platform/lutece-site-plugin-gtools.git</url>
     </scm>
 </project>
