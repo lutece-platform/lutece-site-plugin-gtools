@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     
     <parent>
-        <artifactId>lutece-plugins-pom</artifactId>
-        <groupId>fr.paris.lutece.plugins</groupId>
-        <version>3.7</version>
+        <artifactId>lutece-global-pom</artifactId>
+        <groupId>fr.paris.lutece.tools</groupId>
+        <version>3.0</version>
     </parent>
     
     <modelVersion>4.0.0</modelVersion>
@@ -36,13 +36,16 @@
             <type>lutece-core</type>
         </dependency>
     </dependencies>
-	<properties>
-		<jiraProjectName>GTOOLS</jiraProjectName>
-		<jiraComponentId>11551</jiraComponentId> 
-	</properties>
+    
+    <properties>
+        <jiraProjectName>GTOOLS</jiraProjectName>
+        <jiraComponentId>11551</jiraComponentId> 
+    </properties>
+    
     <scm>
-        <connection>scm:svn:https://github.com/lutece-platform/lutece-site-plugin-gtools.git</connection>
-        <developerConnection>scm:svn:https://github.com/lutece-platform/lutece-site-plugin-gtools.git</developerConnection>
+        <connection>scm:git:https://github.com/lutece-platform/lutece-site-plugin-gtools.git</connection>
+        <developerConnection>scm:git:https://github.com/lutece-platform/lutece-site-plugin-gtools.git</developerConnection>
         <url>https://github.com/lutece-platform/lutece-site-plugin-gtools.git</url>
     </scm>
+    
 </project>
