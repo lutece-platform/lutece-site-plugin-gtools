@@ -3,13 +3,16 @@
 <script type="text/javascript">
 /* French CNIL compliance script */
 var tagAnalyticsCNIL = {}
+
 tagAnalyticsCNIL.CookieConsent = function() {
     // Remplacez la valeur UA-XXXXXX-Y par l'identifiant analytics de votre site.
     var gaProperty = '${ganalytics_code}'
-    // Désactive le tracking si le cookie d'Opt-out existe déjà .
+    // Désactive le tracking si le cookie d'Opt-out existe déjà  .
     var disableStr = 'ga-disable-' + gaProperty;
     var firstCall = false;
+
     //Cette fonction retourne la date d'expiration du cookie de consentement 
+
     function getCookieExpireDate() { 
      // Le nombre de millisecondes que font 13 mois 
      var cookieTimeout = 33696000000;
@@ -18,7 +21,9 @@ tagAnalyticsCNIL.CookieConsent = function() {
      var expires = "; expires="+date.toGMTString();
      return expires;
     }
-    //Cette fonction vérifie si on  a déjà  obtenu le consentement de la personne qui visite le site.
+
+
+    //Cette fonction vérifie si on  a déjà   obtenu le consentement de la personne qui visite le site.
     function checkFirstVisit() {
        var consentCookie =  getCookie('hasConsent'); 
        if ( !consentCookie ) return true;
@@ -33,7 +38,7 @@ tagAnalyticsCNIL.CookieConsent = function() {
         // Le code HTML de la demande de consentement
         div.innerHTML =  '<div style="background-color:#fff;text-align:center;padding:5px;font-size:12px;\
         border-bottom:1px solid #eeeeee;" id="cookie-banner-message" align="center">Ce site utilise Google\
-        Analytics. En continuant à naviguer, vous nous autorisez à déposer un cookie à des fins de mesure\
+        Analytics. En continuant à  naviguer, vous nous autorisez à  déposer un cookie à  des fins de mesure\
         d\'audience. <a href="javascript:tagAnalyticsCNIL.CookieConsent.showInform()" \
         style="text-decoration:underline;"> En savoir plus ou s\'opposer</a>.</div>';
         // Vous pouvez modifier le contenu ainsi que le style
@@ -44,7 +49,7 @@ tagAnalyticsCNIL.CookieConsent = function() {
      }
           
           
-    // Fonction utile pour récupérer un cookie à partir de son nom
+    // Fonction utile pour récupérer un cookie à  partir de son nom
     function getCookie(NameOfCookie)  {
         if (document.cookie.length > 0) {        
             begin = document.cookie.indexOf(NameOfCookie+"=");
@@ -82,7 +87,7 @@ tagAnalyticsCNIL.CookieConsent = function() {
         return r;
     }
 
-    //Vérifie la valeur de navigator.DoNotTrack pour savoir si le signal est activé et est à  1
+    //Vérifie la valeur de navigator.DoNotTrack pour savoir si le signal est activé et est à   1
     function notToTrack() {
         if ( (navigator.doNotTrack && (navigator.doNotTrack=='yes' || navigator.doNotTrack=='1'))
             || ( navigator.msDoNotTrack && navigator.msDoNotTrack == '1') ) {
@@ -94,7 +99,7 @@ tagAnalyticsCNIL.CookieConsent = function() {
         }
     }
 
-    //Si le signal est à  0 on considère que le consentement a déjà  été obtenu
+    //Si le signal est à   0 on considère que le consentement a déjà   été obtenu
     function isToTrack() {
         if ( navigator.doNotTrack && (navigator.doNotTrack=='no' || navigator.doNotTrack==0 )) {
             return true;
@@ -133,10 +138,10 @@ tagAnalyticsCNIL.CookieConsent = function() {
         div.innerHTML =  '<div style="width: 300px; background-color: white; repeat scroll 0% 0% white;\
         border: 1px solid #cccccc; padding :10px 10px;text-align:center; position: fixed; top:30px; \
         left:50%; margin-top:0px; margin-left:-150px; z-index:100000; opacity:1" id="inform-and-consent">\
-        <div><span><b>Les cookies Google Analytics</b></span></div><br><div>Ce site utilise  des cookies\
-        de Google Analytics, ces cookies nous aident à  identifier le contenu qui vous interesse le plus\
-        ainsi qu\'à repérer certains dysfonctionnements. Vos données de navigations sur ce site sont\
-        envoyées à  Google Inc</div><div style="padding :10px 10px;text-align:center;"><button\
+        <div><span><b>Les cookies Google Analytics</b></span></div><br><div>Ce site utilise des cookies\
+        de Google Analytics, ces cookies nous aident à identifier le contenu qui vous interesse le plus\
+        ainsi qu\'à repérer certains dysfonctionnements. Vos données de navigations sur ce site sont\
+        envoyées à Google Inc</div><div style="padding :10px 10px;text-align:center;"><button\
         style="margin-right:50px;text-decoration:underline;" name="S\'opposer" onclick="tagAnalyticsCNIL.CookieConsent.gaOptout();\
         tagAnalyticsCNIL.CookieConsent.hideInform();" id="optout-button" >S\'opposer</button>\
         <button style="text-decoration:underline;" name="cancel" onclick="tagAnalyticsCNIL.CookieConsent.hideInform()"\
@@ -144,6 +149,8 @@ tagAnalyticsCNIL.CookieConsent = function() {
         // Ajoute la bannière juste au début de la page 
         bodytag.insertBefore(div,bodytag.firstChild); 
     }
+
+      
 
     function isClickOnOptOut( evt) { 
         // Si le noeud parent ou le noeud parent du parent est la bannière, on ignore le clic
@@ -168,9 +175,21 @@ tagAnalyticsCNIL.CookieConsent = function() {
     function callGoogleAnalytics() {
         if (firstCall) return;
         else firstCall = true;
+     
         // Insérez votre tag Google Analytics ou Universal Analytics ici
+		var _gaq = _gaq || [];
+		 _gaq.push(['_setAccount', '${ganalytics_code}']);
+		 _gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
     }
+
     return {
+        
         // La fonction d'opt-out   
          gaOptout: function() {
             document.cookie = disableStr + '=true;'+ getCookieExpireDate() +' ; path=/';       
@@ -185,10 +204,14 @@ tagAnalyticsCNIL.CookieConsent = function() {
             clickprocessed = true;
             deleteAnalyticsCookies();
         },
+
+        
          showInform: function() {
             var div = document.getElementById("inform-and-ask");
             div.style.display = "";
         },
+          
+          
          hideInform: function() {
             var div = document.getElementById("inform-and-ask");
             div.style.display = "none";
@@ -196,8 +219,9 @@ tagAnalyticsCNIL.CookieConsent = function() {
             div.style.display = "none";
         },
         
+        
         start: function() {
-            //Ce bout de code vérifie que le consentement n'a pas déjà  été obtenu avant d'afficher
+            //Ce bout de code vérifie que le consentement n'a pas déjà   été obtenu avant d'afficher
             // la bannière
             var consentCookie =  getCookie('hasConsent');
             clickprocessed = false; 
@@ -229,22 +253,15 @@ tagAnalyticsCNIL.CookieConsent = function() {
             }
         }
     }
+
 }();
 
 tagAnalyticsCNIL.CookieConsent.start();
-
 /* End CNIL compliance script */
+  
 
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', '${ganalytics_code}']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
 </script>
+
 <!--
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*** French CNIL compliance: HTML code bellow has to be set in a special page showing which cookies are hold on the website. This link disable the Google Analytics report cookie ***/
