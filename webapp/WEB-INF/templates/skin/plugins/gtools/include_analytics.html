@@ -144,7 +144,7 @@ tagAnalyticsCNIL.CookieConsent = function() {
         envoyées à Google Inc</div><div style="padding :10px 10px;text-align:center;"><button\
         style="margin-right:50px;text-decoration:underline;" name="S\'opposer" onclick="tagAnalyticsCNIL.CookieConsent.gaOptout();\
         tagAnalyticsCNIL.CookieConsent.hideInform();" id="optout-button" >S\'opposer</button>\
-        <button style="text-decoration:underline;" name="cancel" onclick="tagAnalyticsCNIL.CookieConsent.hideInform()"\
+        <button style="text-decoration:underline;" id="optin-button" name="cancel" onclick="tagAnalyticsCNIL.CookieConsent.hideInform()"\
         >Accepter</button></div></div>';
         // Ajoute la bannière juste au début de la page 
         bodytag.insertBefore(div,bodytag.firstChild); 
@@ -153,9 +153,8 @@ tagAnalyticsCNIL.CookieConsent = function() {
       
 
     function isClickOnOptOut( evt) { 
-        // Si le noeud parent ou le noeud parent du parent est la bannière, on ignore le clic
-        return(evt.target.parentNode.id == 'cookie-banner' || evt.target.parentNode.parentNode.id =='cookie-banner' 
-        || evt.target.id == 'optout-button')
+        // Si le bouton cliquer est optin on active le consentement
+		return (evt.target.id != 'optin-button' );
     }
 
     function consent(evt) {
