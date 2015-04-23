@@ -10,7 +10,7 @@
     <groupId>fr.paris.lutece.plugins</groupId>
     <artifactId>plugin-gtools</artifactId>
     <packaging>lutece-plugin</packaging>
-    <version>1.2.3</version>
+    <version>1.2.4-SNAPSHOT</version>
     <name>Lutece gtools plugin</name>
     
     <repositories>
@@ -46,7 +46,7 @@
         <connection>scm:git:https://github.com/lutece-platform/lutece-site-plugin-gtools.git</connection>
         <developerConnection>scm:git:https://github.com/lutece-platform/lutece-site-plugin-gtools.git</developerConnection>
         <url>https://github.com/lutece-platform/lutece-site-plugin-gtools.git</url>
-      <tag>lutece-site-plugin-gtools-1.2.3</tag>
+      <tag>HEAD</tag>
   </scm>
     
 </project>
