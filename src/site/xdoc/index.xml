@@ -1,25 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document>
     <properties>
-        <title>Plugin gtools</title>
+        <title>Plugin GTools</title>
     </properties>
     <body>
-        <section name="Plugin gtools">
-            <!--
-            <p>
-                <img src="images/gtools.png" />
-            </p>
-            -->
-            <subsection name="Introduction">
-                <p></p>
+        <section name="Plugin GTools">
+            <subsection name = "Introduction">
+                <p> The GTools plugin allows to include in the pages of the site elements intended for Google services such as: </p>
+                <ul>
+                    <li> Google Analytics (traffic statistics) </li>
+                    <li> Google Tools for Webmaster </li>
+                </ul>
+                <p>
+                    This plugin can be used from version 4.1 of Lutece.
+                    For previous versions of Lutece, the <b> ganalytics </b> plugin can be used
+                    for the Google Analytics part.
+                </p>
             </subsection>
-            <subsection name="Configuration">
-                <p></p>
+            <subsection name = "Template Settings">
+                <p>
+                    For Google Analytics, add the <code> bookmark
+                        <b> google_analytics </b>
+                    </code>
+                    in the page template (page_frameset.html) or footer (footer.html)
+                </p>
+                <div class = "source">
+                    <pre>
+&lt;!-- Google Analytics --&gt;
+${google_analytics}
+                    </pre>
+                </div>
+
+                <p>
+                    For site verification, add the <code> bookmark
+                        <b> google_meta_site_verification </b>
+                    </code>
+                    in the <code> head </code> part of the page (header.html and header_home.html),
+                </p>
+                
+                <div class = "source">
+                    <pre>
+&lt;!-- Meta: site check -- &gt;
+${google_meta_site_verification}
+                    </pre>
+                </div>
             </subsection>
-            <subsection name="Usage">
-                <p></p>
+            <subsection name = "Google Variables Administration">
+                <p>
+                    The management of Google variables (GA code, key, ...) are directly accessible in the "Managing site properties" section of the back office.
+                </p>
             </subsection>
         </section>
     </body>
 </document>
-
