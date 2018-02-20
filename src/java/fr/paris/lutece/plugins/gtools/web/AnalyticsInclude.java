@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2014, Mairie de Paris
+ * Copyright (c) 2002-2018, Mairie de Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -46,7 +46,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-
 /**
  * Include of the ganalytics code
  */
@@ -61,29 +60,34 @@ public class AnalyticsInclude implements PageInclude
 
     /**
      * Substitue specific Freemarker markers in the page template.
-     * @param rootModel the HashMap containing markers to substitute
-     * @param data A PageData object containing applications data
-     * @param nMode The current mode
-     * @param request The HTTP request
+     * 
+     * @param rootModel
+     *            the HashMap containing markers to substitute
+     * @param data
+     *            A PageData object containing applications data
+     * @param nMode
+     *            The current mode
+     * @param request
+     *            The HTTP request
      */
     @Override
     public void fillTemplate( Map<String, Object> rootModel, PageData data, int nMode, HttpServletRequest request )
     {
         _plugin = PluginService.getPlugin( PLUGIN_NAME );
 
-        if( _plugin != null && request != null )
+        if ( _plugin != null && request != null )
         {
-	        Map<String, Object> model = new HashMap<String, Object>(  );
-	        String strCode = DatastoreService.getDataValue( KEY_ANALYTICS_CODE, "<no code provided>" );
-	        model.put( MARK_INCLUDE_GANALYTICS_CODE, strCode );
-	
-	        HtmlTemplate template = AppTemplateService.getTemplate( TEMPLATE_INCLUDE_GANALYTICS_CODE,
-	                request.getLocale(  ), model );
-	
-	        rootModel.put( MARK_GANALYTICS, template.getHtml(  ) );
+            Map<String, Object> model = new HashMap<String, Object>( );
+            String strCode = DatastoreService.getDataValue( KEY_ANALYTICS_CODE, "<no code provided>" );
+            model.put( MARK_INCLUDE_GANALYTICS_CODE, strCode );
+
+            HtmlTemplate template = AppTemplateService.getTemplate( TEMPLATE_INCLUDE_GANALYTICS_CODE, request.getLocale( ), model );
+
+            rootModel.put( MARK_GANALYTICS, template.getHtml( ) );
         }
-        else {
-	        rootModel.put( MARK_GANALYTICS, "" );
+        else
+        {
+            rootModel.put( MARK_GANALYTICS, "" );
         }
     }
 }

@@ -1,7 +1,7 @@
+![](http://dev.lutece.paris.fr/jenkins/buildStatus/icon?job=site-plugin-gtools-deploy)
+# Plugin GTools
 
-#Plugin GTools
-
-##Introduction
+## Introduction
 
 The GTools plugin allows to include in the pages of the site elements intended for Google services such as:
 
@@ -11,7 +11,7 @@ The GTools plugin allows to include in the pages of the site elements intended f
 
 This plugin can be used from version 4.1 of Lutece. For previous versions of Lutece, the **ganalytics** plugin can be used for the Google Analytics part.
 
-##Template Settings
+## Template Settings
 
 For Google Analytics, add the `bookmark **google_analytics** ` in the page template (page_frameset.html) or footer (footer.html)
 
@@ -31,7 +31,7 @@ ${google_meta_site_verification}
                     
 ```
 
-##Google Variables Administration
+## Google Variables Administration
 
 The management of Google variables (GA code, key, ...) are directly accessible in the "Managing site properties" section of the back office.
 
