@@ -32,7 +32,7 @@
         <dependency>
             <groupId>fr.paris.lutece</groupId>
             <artifactId>lutece-core</artifactId>
-            <version>[4.0.2,)</version>	  
+            <version>[4.0.2,7.9.9)</version>	  
             <type>lutece-core</type>
         </dependency>
     </dependencies>
