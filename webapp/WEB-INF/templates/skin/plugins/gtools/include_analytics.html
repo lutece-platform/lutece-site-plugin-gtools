@@ -11,9 +11,9 @@
 <link href="/cnil_tools/cnil.css" rel="stylesheet">
 <!-- Choose inclusion method: webapp or NGINX -->
 <script type="text/javascript">
-jQuery(function ($) {
-	if( $.cookie('cookie-cnil-parisfr') ){
-		var _gaq = _gaq || [];
+document.addEventListener( 'DOMContentLoaded', function( ) {
+	if( document.cookie.split( '; ' ).some( function( c ) { return c.indexOf( 'cookie-cnil-parisfr=' ) === 0 && c.length > 'cookie-cnil-parisfr='.length; } ) ){
+		var _gaq = window._gaq = window._gaq || [];
 		_gaq.push(['_setAccount', '${ganalytics_code}']);
 		_gaq.push(['_trackPageview']);
 

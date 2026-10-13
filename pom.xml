@@ -3,14 +3,14 @@
     <parent>
         <artifactId>lutece-global-pom</artifactId>
         <groupId>fr.paris.lutece.tools</groupId>
-        <version>7.0.2</version>
+        <version>8.0.3</version>
     </parent>
     
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.paris.lutece.plugins</groupId>
     <artifactId>plugin-gtools</artifactId>
     <packaging>lutece-plugin</packaging>
-    <version>1.2.5-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <name>Lutece gtools plugin</name>
     
     <repositories>
@@ -32,15 +32,21 @@
         <dependency>
             <groupId>fr.paris.lutece</groupId>
             <artifactId>lutece-core</artifactId>
-            <version>[4.0.2,7.9.9)</version>	  
+            <version>[8.0.0,)</version>	  
             <type>lutece-core</type>
         </dependency>
+        <dependency>
+            <groupId>fr.paris.lutece.plugins</groupId>
+            <artifactId>library-lutece-unit-testing</artifactId>
+            <type>jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
-    
-    <properties>
-        <jiraProjectName>GTOOLS</jiraProjectName>
-        <jiraComponentId>11551</jiraComponentId> 
-    </properties>
     
     <scm>
         <connection>scm:git:https://github.com/lutece-platform/lutece-site-plugin-gtools.git</connection>

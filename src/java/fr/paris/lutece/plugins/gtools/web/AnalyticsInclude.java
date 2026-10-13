@@ -41,10 +41,12 @@ import fr.paris.lutece.portal.service.plugin.PluginService;
 import fr.paris.lutece.portal.service.template.AppTemplateService;
 import fr.paris.lutece.util.html.HtmlTemplate;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * Include of the ganalytics code
@@ -56,7 +58,6 @@ public class AnalyticsInclude implements PageInclude
     private static final String PLUGIN_NAME = "gtools";
     private static final String TEMPLATE_INCLUDE_GANALYTICS_CODE = "skin/plugins/gtools/include_analytics.html";
     private static final String MARK_INCLUDE_GANALYTICS_CODE = "ganalytics_code";
-    private Plugin _plugin;
 
     /**
      * Substitue specific Freemarker markers in the page template.
@@ -73,13 +74,17 @@ public class AnalyticsInclude implements PageInclude
     @Override
     public void fillTemplate( Map<String, Object> rootModel, PageData data, int nMode, HttpServletRequest request )
     {
-        _plugin = PluginService.getPlugin( PLUGIN_NAME );
+        Plugin plugin = PluginService.getPlugin( PLUGIN_NAME );
 
-        if ( _plugin != null && request != null )
+        if ( plugin != null && request != null )
         {
             Map<String, Object> model = new HashMap<String, Object>( );
-            String strCode = DatastoreService.getDataValue( KEY_ANALYTICS_CODE, "<no code provided>" );
-            model.put( MARK_INCLUDE_GANALYTICS_CODE, strCode );
+            String strCode = DatastoreService.getDataValue( KEY_ANALYTICS_CODE, null );
+
+            if ( StringUtils.isNotBlank( strCode ) )
+            {
+                model.put( MARK_INCLUDE_GANALYTICS_CODE, strCode );
+            }
 
             HtmlTemplate template = AppTemplateService.getTemplate( TEMPLATE_INCLUDE_GANALYTICS_CODE, request.getLocale( ), model );
 
