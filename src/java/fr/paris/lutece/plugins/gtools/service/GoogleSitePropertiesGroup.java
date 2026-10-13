@@ -36,9 +36,12 @@ package fr.paris.lutece.plugins.gtools.service;
 
 import fr.paris.lutece.portal.service.site.properties.ILocalizedSitePropertiesGroup;
 
+import jakarta.enterprise.context.ApplicationScoped;
+
 /**
  * Google Site Properties Group
  */
+@ApplicationScoped
 public class GoogleSitePropertiesGroup implements ILocalizedSitePropertiesGroup
 {
     private static final String KEY_NAME = "gtools.site_properties_group.name";
